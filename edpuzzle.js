@@ -340,5 +340,4 @@ function parseQuestions(questions) {
     }
     popup.questions = questions;
 }
-
 init();
