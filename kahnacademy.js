@@ -167,7 +167,7 @@
 
         return new Answer(answer, "dropdown");
     }
-})();
+})
 
 function openPopup(assignment) {
     var media = assignment.medias[0];
@@ -342,4 +342,4 @@ function parseQuestions(questions) {
         popup.document.getElementById("answers_button").disabled = false;
     }
     popup.questions = questions;
-}
+};
