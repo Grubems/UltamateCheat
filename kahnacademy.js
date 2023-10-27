@@ -45,23 +45,6 @@
                 console.log(`%c${text.trim()} `, style);
             }
         }
-
-        printImage(ans) {
-            const url = ans.replace("![](web+graphie", "https").replace(")", ".svg");
-            const image = new Image();
-
-            image.src = url;
-            image.onload = () => {
-                const imageStyle = [
-                    'font-size: 1px;',
-                    'line-height: ', this.height % 2, 'px;',
-                    'padding: ', this.height * .5, 'px ', this.width * .5, 'px;',
-                    'background-size: ', this.width, 'px ', this.height, 'px;',
-                    'background: url(', url, ');'
-                ].join(' ');
-                console.log('%c ', imageStyle);
-            };
-        }
     }
 
     const originalFetch = window.fetch;
