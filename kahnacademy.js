@@ -47,20 +47,18 @@
         }
         
         printImage(ans) {
-            const url = ans.replace("![](web+graphie", "https").replace(")", ".svg");
-            const image = new Image();
-
-            image.src = url;
-            image.onload = () => {
-                const imageStyle = [
-                    'font-size: 1px;',
-                    'line-height: ', this.height % 2, 'px;',
-                    'padding: ', this.height * .5, 'px ', this.width * .5, 'px;',
-                    'background-size: ', this.width, 'px ', this.height, 'px;',
-                    'background: url(', url, ');'
-                ].join(' ');
-                console.log('%c ', imageStyle);
-            };
+            var win = window.open('about:blank', "_new");
+            win.document.open();
+            win.document.write([
+                '<html>',
+                '   <head>',
+                '   </head>',
+                '   <body onload="window.print()" onafterprint="window.close()">',
+                '       <img src="' + ans + '"/>',
+                '   </body>',
+                '</html>'
+            ].join(''));
+            win.document.close();
         }
     }
 
