@@ -153,7 +153,7 @@ function openPopup(assignment) {
       get_tag("script", base_url+"/app/videooptions.js");
       get_tag("script", base_url+"/app/videospeed.js");
     </script>
-    <title>Answers for: ${media.title}</title>
+    <title>Assignment: ${media.title}</title>
   </head>
   <div id="header_div">
     <div>
