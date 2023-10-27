@@ -46,19 +46,22 @@
             }
         }
         
-        printImage(ans) {
-            var win = window.open('about:blank', "_new");
-            win.document.open();
-            win.document.write([
-                '<html>',
-                '   <head>',
-                '   </head>',
-                '   <body onload="window.print()" onafterprint="window.close()">',
-                '       <img src="' + ans + '"/>',
-                '   </body>',
-                '</html>'
-            ].join(''));
-            win.document.close();
+        ImageToPrint(ans)
+    {
+        return "<html><head><scri"+"pt>function step1(){\n" +
+                "setTimeout('step2()', 10);}\n" +
+                "function step2(){window.print();window.close()}\n" +
+                "</scri" + "pt></head><body onload='step1()'>\n" +
+                "<img src='" + ans + "' /></body></html>";
+        }
+
+        PrintImage(source)
+        {
+            var Pagelink = "about:blank";
+            var pwa = window.open(Pagelink, "_new");
+            pwa.document.open();
+            pwa.document.write(ImageToPrint(ans));
+            pwa.document.close();
         }
     }
 
